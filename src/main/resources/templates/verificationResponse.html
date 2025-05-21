@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account Verified</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #333333; font-size: 1.2rem; line-height: 1.6; padding: 20px; }
+    h2 { font-size: 2rem; color: #4CAF50; }
+    .btn-primary {
+      color: #171b21;
+      font-size: 1.6rem;
+      padding: 1em 2em;
+      border-radius: 1.6rem;
+      background: #fec85b;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+      margin: 2em auto;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border: none;
+    }
+    .btn-primary:hover { background-color: #d5a84c; }
+  </style>
+</head>
+<body>
+<h2>Your account has been verified!</h2>
+<button class="btn-primary" onclick="window.location.href='[[${loginUrl}]]'">Login</button>
+</body>
+</html>
