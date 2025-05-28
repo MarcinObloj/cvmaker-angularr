@@ -41,8 +41,9 @@ public class CVFileController {
         return cvFileService.deleteCvFile(id);
     }
 
-    @GetMapping(ApiConstant.CV_DOWNLOAD+"/{id}")
-    public ResponseEntity<Resource> downloadCvFile(@PathVariable int id) {
+    @GetMapping(ApiConstant.CV_DOWNLOAD + "/{id}")
+    public ResponseEntity<Void> downloadCvFile(@PathVariable int id) {
         return cvFileService.downloadCvFile(id);
     }
+
 }

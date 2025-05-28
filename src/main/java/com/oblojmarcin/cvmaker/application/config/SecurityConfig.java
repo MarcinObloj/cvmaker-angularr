@@ -81,7 +81,13 @@ public class SecurityConfig {
                 "SELECT username, password, TRUE FROM users WHERE username = ?");
 
         jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
-                "SELECT u.username, r.name FROM users u JOIN roles r ON u.role_id = r.id WHERE u.username = ?");
+                "SELECT u.username, r.name " +
+                        "FROM users u " +
+                        "JOIN roles r ON u.role_id = r.id " + // <-- poprawiona kolumna
+                        "WHERE u.username = ?"
+        );
+
+
 
         return jdbcUserDetailsManager;
     }
