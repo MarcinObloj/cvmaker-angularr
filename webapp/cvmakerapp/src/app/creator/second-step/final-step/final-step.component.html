@@ -1,0 +1,42 @@
+<nav class="nav">
+    <div class="nav__logo">
+        <a routerLink="/" class="nav__logo-text">
+            <img
+                src="img/logo.svg"
+                alt="Logo"
+                class="nav__logo-img" />Creator<span>CV</span>
+        </a>
+    </div>
+</nav>
+<main class="main">
+    <div class="wrapper">
+        <div class="third__step-boxes">
+            <div class="third__step-box">
+                <div class="third__step-box-number">
+                    <i class="fa-solid fa-1"></i>
+                </div>
+                <p class="third__step-box-info">Wybierz szablon</p>
+            </div>
+            <div class="third__step-box">
+                <div class="third__step-box-number">
+                    <i class="fa-solid fa-2"></i>
+                </div>
+                <p class="third__step-box-info">Uzupełnij dane</p>
+            </div>
+            <div class="third__step-box third__step-box-active">
+                <div class="third__step-box-number">
+                    <i class="fa-solid fa-3"></i>
+                </div>
+                <p class="third__step-box-info">Ściągnij CV</p>
+            </div>
+        </div>
+        <h2 class="congrats-heading">Gratulacje! stworzyłes CV</h2>
+        <img src="img/confetti.png" alt="" class="confetti" />
+
+        <div class="congrats-btns">
+            <button id="download-cv" class="btn-primary" (click)="downloadCV()">Pobierz CV</button>
+            <p>LUB</p>
+            <a routerLink="/user-panel" class="btn-userpanel">Przejrzyj CV</a>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,207 @@
+$colorLinear: var(--linear, linear-gradient(315deg, rgba(0, 173, 181, 0.60)0%, rgba(0, 162, 170, 0.60)9.09%, rgba(0, 152, 159, 0.60)18.18%, rgba(0, 141, 148, 0.60)27.27%, rgba(0, 131, 137, 0.60)36.36%, rgba(21, 134, 140, 0.60)45.45%, rgba(34, 138, 143, 0.60)54.55%, rgba(44, 141, 146, 0.60)63.64%, rgba(65, 158, 163, 0.60)72.73%, rgba(85, 176, 181, 0.60)81.82%, rgba(103, 194, 199, 0.60)90.91%, rgba(122, 212, 217, 0.60)100%));
+
+/* Contrast: #ffffff */
+$colorPrimary500: rgba(34,40,49,1);
+
+/* Contrast: #212529 */
+$colorPrimary50: rgba(193,195,197,1);
+
+/* Contrast: #212529 */
+$colorPrimary100: rgba(175,178,181,1);
+
+/* Contrast: #212529 */
+$colorPrimary200: rgba(140,143,148,1);
+
+/* Contrast: #ffffff */
+$colorPrimary300: rgba(105,109,115,1);
+
+/* Contrast: #ffffff */
+$colorPrimary400: rgba(69,74,82,1);
+
+/* Contrast: #ffffff */
+$colorPrimary600: rgba(29,34,41,1);
+
+/* Contrast: #ffffff */
+$colorPrimary700: rgba(23,27,33,1);
+
+/* Contrast: #ffffff */
+$colorPrimary800: rgba(18,21,25,1);
+
+/* Contrast: #ffffff */
+$colorPrimary900: rgba(12,14,18,1);
+
+/* Contrast: #ffffff */
+$colorSecondary500: rgba(57,62,70,1);
+
+/* Contrast: #212529 */
+$colorSecondary50: rgba(200,201,203,1);
+
+/* Contrast: #212529 */
+$colorSecondary100: rgba(184,186,188,1);
+
+/* Contrast: #212529 */
+$colorSecondary200: rgba(152,155,159,1);
+
+/* Contrast: #000000 */
+$colorSecondary300: rgba(120,124,129,1);
+
+/* Contrast: #ffffff */
+$colorSecondary400: rgba(89,93,100,1);
+
+/* Contrast: #ffffff */
+$colorSecondary600: rgba(48,52,59,1);
+
+/* Contrast: #ffffff */
+$colorSecondary700: rgba(39,42,48,1);
+
+/* Contrast: #ffffff */
+$colorSecondary800: rgba(30,32,36,1);
+
+/* Contrast: #ffffff */
+$colorSecondary900: rgba(21,22,25,1);
+
+/* Contrast: #212529 */
+$colorButton50: rgba(184,232,234,1);
+
+/* Contrast: #212529 */
+$colorButton100: rgba(163,225,228,1);
+
+/* Contrast: #212529 */
+$colorButton200: rgba(122,212,217,1);
+
+/* Contrast: #212529 */
+$colorButton300: rgba(82,199,205,1);
+
+/* Contrast: #212529 */
+$colorButton400: rgba(41,186,193,1);
+
+/* Contrast: #212529 */
+$colorButton500: rgba(0,173,181,1);
+
+/* Contrast: #000000 */
+$colorButton600: rgba(0,145,152,1);
+
+/* Contrast: #ffffff */
+$colorButton700: rgba(0,118,123,1);
+
+/* Contrast: #ffffff */
+$colorButton800: rgba(0,90,94,1);
+
+/* Contrast: #ffffff */
+$colorButton900: rgba(0,62,65,1);
+
+/* Contrast: #212529 */
+$colorBgColor50: rgba(250,250,250,1);
+
+/* Contrast: #212529 */
+$colorBgColor100: rgba(249,249,249,1);
+
+/* Contrast: #212529 */
+$colorBgColor200: rgba(246,246,246,1);
+
+/* Contrast: #212529 */
+$colorBgColor300: rgba(243,243,243,1);
+
+/* Contrast: #212529 */
+$colorBgColor400: rgba(241,241,241,1);
+
+/* Contrast: #212529 */
+$colorBgColor500: rgba(238,238,238,1);
+
+/* Contrast: #212529 */
+$colorBgColor600: rgba(200,200,200,1);
+
+/* Contrast: #212529 */
+$colorBgColor700: rgba(162,162,162,1);
+
+/* Contrast: #000000 */
+$colorBgColor800: rgba(124,124,124,1);
+
+/* Contrast: #ffffff */
+$colorBgColor900: rgba(86,86,86,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground50: rgba(255,240,209,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground100: rgba(255,235,196,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground200: rgba(254,226,170,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground300: rgba(254,218,143,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground400: rgba(254,209,117,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground500: rgba(254,200,91,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground600: rgba(213,168,76,1);
+
+/* Contrast: #212529 */
+$colorBtnBackground700: rgba(173,136,62,1);
+
+/* Contrast: #ffffff */
+$colorBtnBackground800: rgba(132,104,47,1);
+
+/* Contrast: #ffffff */
+$colorBtnBackground900: rgba(91,72,33,1);
+@mixin textStyleHeadingH2() {
+	font-size: 4.2rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	
+	text-transform: uppercase;
+}
+@mixin NormalFontDesktop() {
+	font-size: 2.4rem;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+}
+@mixin HeadingH1Dekstop() {
+	font-size: 5.4rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+}
+@mixin HeadingH3Desktop() {
+	font-size: 2.8rem;
+	font-family: Inter;
+	font-weight: 600;
+}
+@mixin HeadingH1Tablet() {
+	font-size: 4rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+}
+@mixin NormalFontTablet() {
+	font-size: 2rem;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+}
+@mixin HeadingH2Tablet() {
+	text-align: center;
+	font-size: 3.2rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	
+	text-transform: uppercase;
+}
+@mixin NormalFontPhone() {
+	font-size: 1.6rem;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+}
+@mixin HeadingH1Phone() {
+	font-size: 2.8rem;
+	font-weight: 700;
+}
+@mixin HeadingH2Phone() {
+	font-size: 2.4rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	text-align: center;
+	text-transform: uppercase;
+}

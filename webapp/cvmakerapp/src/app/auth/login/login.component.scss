@@ -1,0 +1,182 @@
+@use "../../../colors.scss" as *;
+main {
+  padding: 6em 0;
+  // height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset {
+  height: 80vh;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.6rem;
+  .success {
+    background: $colorLinear;
+    background-clip: text;
+    color: transparent;
+  }
+  .error-register {
+    color: tomato;
+  }
+}
+
+.form-box {
+  background-color: #fff;
+  padding: 4em 2em;
+  border-radius: 16px;
+  margin: 0 auto;
+  box-shadow: 0px 2px 8px 0px rgba(0, 62, 65, 0.3);
+  width: 70%;
+  .btn-primary {
+    width: 100%;
+  }
+  .btn-back {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+  .reset-btn {
+    margin-top: 0.5em;
+  }
+  .fa-solid {
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .btn-back:hover .fa-solid {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+  .form-reset {
+    display: block;
+    text-align: right;
+    background: $colorLinear;
+    background-clip: text;
+    color: transparent;
+    transition: color 0.3s;
+    &:hover {
+      color: $colorButton700;
+    }
+  }
+  .form-heading,
+  .form-info {
+    text-align: center;
+  }
+  .form-heading {
+    margin-bottom: 0.1em;
+  }
+  .form-info {
+    margin-bottom: 1em;
+    color: var(--primary-300, #696d73);
+  }
+  .form-group {
+    position: relative;
+    margin-bottom: 1em;
+    &-label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+    &-input {
+      width: 100%;
+      padding: 0.8em 3em;
+      border-radius: 16px;
+    }
+  }
+
+  .fa {
+    position: absolute;
+    left: 15px;
+    top: 38px;
+    font-size: 2rem;
+    color: var(--primary-300, #696d73);
+  }
+  .form-info {
+    a {
+      color: #222831;
+      font-weight: bold;
+      transition: color 0.3s;
+      &:hover {
+        color: #0a0b0b;
+      }
+    }
+  }
+}
+
+.input-error {
+  border: 2px solid #fc7272;
+  background-color: #fdc1c1;
+}
+
+.error {
+  color: #fc7272;
+}
+@media (width <= 426px) {
+  .login {
+    .form-box {
+      .fa-user {
+        top: 67px;
+      }
+    }
+  }
+}
+// @media (  310px <= width <= 390px) {
+// 	.form-box {
+
+// 		.fa-user {
+// 			top: 55px;
+// 		}
+// 		.icon{
+// 			top: 35px;
+// 		}
+// 	}
+// }
+
+@media (width >= 992px) {
+  .message {
+    font-size: 2rem;
+  }
+  main {
+    height: 100vh;
+  }
+  a,
+  .form-group-label,
+  .form-group-input,
+  .form-info {
+    font-size: 2rem;
+  }
+  .form-heading {
+    font-size: 4.2rem;
+  }
+  .form-box {
+    .fa {
+      position: absolute;
+      left: 20px;
+      top: 50px;
+      font-size: 3rem;
+      color: var(--primary-300, #696d73);
+    }
+    .fa-solid {
+      font-size: 2.5rem;
+      // margin-right: 1.5em;
+    }
+  }
+  form {
+    .button-box {
+      display: flex;
+      gap: 1em;
+      margin: 2em 0;
+      .btn-primary {
+        margin: 0;
+      }
+    }
+  }
+}
+@media (width >= 1200px) {
+}
+.mat-icon {
+  position: relative;
+  top: 5px;
+  left: -5px;
+}

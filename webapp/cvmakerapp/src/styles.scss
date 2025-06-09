@@ -1,0 +1,143 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./colors.scss" as *;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: auto;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background-color: $colorBgColor500;
+  font-family: "Poppins", sans-serif;
+  color: $colorPrimary500;
+  font-size: 1.6rem;
+  // overflow: hidden;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+.section-padding {
+  padding: 6em 2em;
+}
+.section-heading {
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+.btn-primary {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+  border-radius: 1.6rem;
+  width: 40%;
+  background: var(--btn-background-500, #fec85b);
+  color: $colorPrimary500;
+  text-align: center;
+  font-weight: bold;
+  margin: 2em auto;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #d5a84c;
+  }
+}
+.btn-secondary {
+  // position: absolute;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  display: block;
+  text-decoration: none;
+  color: $colorPrimary500;
+  font-weight: bold;
+  background-color: transparent transparent;
+  padding: 1em 2em;
+  width: 40%;
+  border-radius: 16px;
+  border: 3px solid $colorPrimary500;
+  margin: 0 auto;
+  margin-top: 1.5em;
+  text-align: center;
+  transition: color 0.3s, border 0.3s;
+  &:hover {
+    color: #fec85b;
+    border: 3px solid #fec85b;
+  }
+}
+.btn-back {
+  border-radius: 1.6rem;
+  border: 3px solid var(--primary-700, #171b21);
+  padding: 1em 2em;
+  color: $colorPrimary500;
+  background: transparent;
+  font-weight: bold;
+}
+.section-heading {
+  text-transform: uppercase;
+}
+@media (width <= 650px) {
+  .btn-primary {
+    width: 80%;
+  }
+}
+
+@media (width >= 968px) {
+  .btn-primary,
+  .btn-back,
+  .btn-secondary {
+    font-size: 2rem;
+  }
+}
+@media (width >= 1200px) {
+  .btn-primary,
+  .btn-back,
+  .btn-secondary {
+    font-size: 2.4rem;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

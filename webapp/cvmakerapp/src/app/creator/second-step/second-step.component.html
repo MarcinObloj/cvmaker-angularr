@@ -1,0 +1,624 @@
+<app-modal
+  *ngIf="isModalVisible"
+  [title]="modalTitle"
+  [message]="modalMessage"
+  [confirmText]="modalConfirmText"
+  (confirm)="onModalConfirm()"
+>
+</app-modal>
+<nav class="nav">
+  <div class="nav__logo">
+    <a routerLink="/" class="nav__logo-text">
+      <img src="img/logo.svg" alt="Logo" class="nav__logo-img" />Creator<span
+        >CV</span
+      >
+    </a>
+  </div>
+  <div class="open-overlay">
+    <button class="open-btn" (click)="toggleOverlay()">
+      <img src="img/overla.png" alt="otworz podgląd CV" />
+    </button>
+  </div>
+</nav>
+<main class="main-step">
+  <div class="wrapper">
+    <h2 class="cv-title">
+      Bez Nazwy <mat-icon class="fa-solid fa-circle-info">info</mat-icon>
+    </h2>
+    <h3 class="section-title">Informacje Personalne</h3>
+    <div class="personal-info-box">
+      <div class="form-group">
+        <div class="input-title">
+          <label for="job-title">Pożądany tytuł zawodowy </label>
+          <div
+            class="form-group-info-box"
+            data-content="Podaj nazwę stanowiska, na które aplikujesz. To może być stanowisko, które już zajmujesz, np. 'Specjalista ds. sprzedaży', lub to, które jest Twoim celem zawodowym, np. 'Kierownik działu marketingu'. Pamiętaj, aby tytuł był jasny i zrozumiały dla potencjalnego pracodawcy."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="text"
+          id="job-title"
+          name="job-title"
+          placeholder="Nauczyciel"
+          (input)="updatePreview($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="file"
+          id="photo-upload"
+          name="photo-upload"
+          accept="image/*"
+          class="photo-upload"
+          (change)="handleFileInput($event)"
+        />
+        <label for="photo-upload" class="upload-label">
+          <img src="img/guy.svg" alt="" />Dołącz zdjęcie
+        </label>
+      </div>
+
+      <div class="form-group">
+        <div class="input-title">
+          <label for="first-name">Imię</label>
+          <div
+            class="form-group-info-box"
+            data-content="Wpisz swoje pełne imię, którym się posługujesz w kontaktach oficjalnych. Pamiętaj, aby nie używać pseudonimów. Przykład: 'Marcin'."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="text"
+          id="first-name"
+          name="first-name"
+          placeholder="Marcin"
+          (input)="updatePreview($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <div class="input-title">
+          <label for="last-name">Nazwisko</label>
+          <div
+            class="form-group-info-box"
+            data-content="Podaj swoje nazwisko, tak jak pojawia się ono w dokumentach oficjalnych. Upewnij się, że zapis jest poprawny, aby uniknąć nieporozumień. Przykład: 'Obłój'."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="text"
+          id="last-name"
+          name="last-name"
+          placeholder="Obloj"
+          (input)="updatePreview($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <div class="input-title">
+          <label for="email">Email</label>
+          <div
+            class="form-group-info-box"
+            data-content="Wpisz adres email, którego regularnie używasz i który jest profesjonalny. Unikaj niepoważnych adresów, takich jak 'kwiatuszek88@mail.com'. Przykład: 'jan.kowalski@mail.com'."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="mail@mail.com"
+          (input)="updatePreview($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <div class="input-title">
+          <label for="phone">Numer telefonu</label>
+          <div
+            class="form-group-info-box"
+            data-content="Wprowadź swój aktualny numer telefonu w formacie międzynarodowym (jeśli planujesz aplikować za granicę) lub krajowym. Upewnij się, że numer jest aktualny i możliwy do kontaktu. Przykład: '+48 689 340 487'."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+48 689340487"
+          (input)="updatePreview($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <div class="input-title">
+          <label for="city">Miasto</label>
+          <div
+            class="form-group-info-box"
+            data-content="Wpisz nazwę miasta, w którym aktualnie mieszkasz lub w którym szukasz pracy. Jeśli planujesz przeprowadzkę, możesz wpisać miasto, do którego planujesz się przenieść. Przykład: 'Warszawa'."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="Blizne"
+          (input)="updatePreview($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <div class="input-title">
+          <label for="postal-code">Kod pocztowy</label>
+          <div
+            class="form-group-info-box"
+            data-content="Podaj swój kod pocztowy w formacie XX-XXX. Jest to szczególnie ważne, jeśli pracodawca chce poznać dokładniejszą lokalizację kandydata. Przykład: '00-001'."
+          >
+            <img src="img/info.svg" alt="" class="form-group-info" />
+          </div>
+        </div>
+        <input
+          type="text"
+          id="postal-code"
+          name="postal-code"
+          placeholder="36-221"
+          (input)="updatePreview($event)"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-title">
+        <label for="summary">
+          <h3 class="section-title">Podsumowanie Zawodowe</h3>
+        </label>
+        <div
+          class="form-group-info-box"
+          data-content="Napisz krótkie podsumowanie swojego doświadczenia zawodowego, kluczowych umiejętności oraz osiągnięć. Skup się na tym, co czyni Cię idealnym kandydatem na stanowisko, na które aplikujesz. Przykład: 'Jestem specjalistą ds. marketingu z 5-letnim doświadczeniem w zarządzaniu kampaniami online...'."
+        >
+          <img src="img/info.svg" alt="" class="form-group-info" />
+        </div>
+      </div>
+      <div class="text-area-box">
+        <div class="btn-box">
+          <button
+            class="btn-bold tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<b></b>')"
+          >
+            <mat-icon>format_bold</mat-icon>
+          </button>
+          <button
+            class="btn-strike-through tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<s></s>')"
+          >
+            <mat-icon>strikethrough_s</mat-icon>
+          </button>
+          <button
+            class="btn-underline tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<u></u>')"
+          >
+            <mat-icon>format_underlined</mat-icon>
+          </button>
+          <button
+            class="btn-italic tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<i></i>')"
+          >
+            <mat-icon>format_italic</mat-icon>
+          </button>
+          <button
+            class="btn-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ol></ol>')"
+          >
+            <mat-icon>format_list_numbered</mat-icon>
+          </button>
+          <button
+            class="btn-ordered-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ul></ul>')"
+          >
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+        </div>
+        <textarea
+          #summaryArea
+          id="summary"
+          name="summary"
+          placeholder="Jestem dynamicznym specjalistą ds. marketingu..."
+          class="form-textarea"
+          (focus)="setActiveTextarea(summaryArea)"
+          (input)="updatePreview($event)"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-title">
+        <label for="education">
+          <h3 class="section-title">Wykształcenie</h3>
+        </label>
+        <div
+          class="form-group-info-box"
+          data-content="Wprowadź informacje o swoim wykształceniu. Zawrzyj nazwę szkoły, kierunek studiów oraz rok ukończenia. Jeśli masz wiele poziomów wykształcenia, zacznij od najnowszego. Przykład: 'Uniwersytet Warszawski, Magisterium z ekonomii, 2020'."
+        >
+          <img src="img/info.svg" alt="" class="form-group-info" />
+        </div>
+      </div>
+      <div class="text-area-box">
+        <div class="btn-box">
+          <button
+            class="btn-bold tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<b></b>')"
+          >
+            <mat-icon>format_bold</mat-icon>
+          </button>
+          <button
+            class="btn-strike-through tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<s></s>')"
+          >
+            <mat-icon>strikethrough_s</mat-icon>
+          </button>
+          <button
+            class="btn-underline tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<u></u>')"
+          >
+            <mat-icon>format_underlined</mat-icon>
+          </button>
+          <button
+            class="btn-italic tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<i></i>')"
+          >
+            <mat-icon>format_italic</mat-icon>
+          </button>
+          <button
+            class="btn-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ol></ol>')"
+          >
+            <mat-icon>format_list_numbered</mat-icon>
+          </button>
+          <button
+            class="btn-ordered-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ul></ul>')"
+          >
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+        </div>
+        <textarea
+          #educationArea
+          id="education"
+          name="education"
+          placeholder="Uniwersytet Warszawski..."
+          (focus)="setActiveTextarea(educationArea)"
+          (input)="updatePreview($event)"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-title">
+        <label for="skills">
+          <h3 class="section-title">Umiejętności</h3>
+        </label>
+        <div
+          class="form-group-info-box"
+          data-content="Podaj swoje najważniejsze umiejętności, które są związane z stanowiskiem, na które aplikujesz. Unikaj ogólników i staraj się dopasować umiejętności do wymagań danej oferty pracy. Przykład: 'Zarządzanie projektami, Analityka danych, Negocjacje'."
+        >
+          <img src="img/info.svg" alt="" class="form-group-info" />
+        </div>
+      </div>
+      <div class="text-area-box">
+        <div class="btn-box">
+          <button
+            class="btn-bold tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<b></b>')"
+          >
+            <mat-icon>format_bold</mat-icon>
+          </button>
+          <button
+            class="btn-strike-through tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<s></s>')"
+          >
+            <mat-icon>strikethrough_s</mat-icon>
+          </button>
+          <button
+            class="btn-underline tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<u></u>')"
+          >
+            <mat-icon>format_underlined</mat-icon>
+          </button>
+          <button
+            class="btn-italic tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<i></i>')"
+          >
+            <mat-icon>format_italic</mat-icon>
+          </button>
+          <button
+            class="btn-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ol></ol>')"
+          >
+            <mat-icon>format_list_numbered</mat-icon>
+          </button>
+          <button
+            class="btn-ordered-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ul></ul>')"
+          >
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+        </div>
+        <textarea
+          #skillsArea
+          id="skills"
+          name="skills"
+          (focus)="setActiveTextarea(skillsArea)"
+          placeholder="Umiejętności..."
+          (input)="updatePreview($event)"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-title">
+        <label for="courses">
+          <h3 class="section-title">Kursy i certyfikaty</h3>
+        </label>
+        <div
+          class="form-group-info-box"
+          data-content="Opisz kursy i certyfikaty, które posiadasz. Warto wspomnieć o tych, które są bezpośrednio związane z ofertą pracy, np. certyfikaty branżowe. Przykład: 'Certyfikat Google Ads, Szkolenie z zarządzania projektami'."
+        >
+          <img src="img/info.svg" alt="" class="form-group-info" />
+        </div>
+      </div>
+      <div class="text-area-box">
+        <div class="btn-box">
+          <button
+            class="btn-bold tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<b></b>')"
+          >
+            <mat-icon>format_bold</mat-icon>
+          </button>
+          <button
+            class="btn-strike-through tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<s></s>')"
+          >
+            <mat-icon>strikethrough_s</mat-icon>
+          </button>
+          <button
+            class="btn-underline tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<u></u>')"
+          >
+            <mat-icon>format_underlined</mat-icon>
+          </button>
+          <button
+            class="btn-italic tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<i></i>')"
+          >
+            <mat-icon>format_italic</mat-icon>
+          </button>
+          <button
+            class="btn-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ol></ol>')"
+          >
+            <mat-icon>format_list_numbered</mat-icon>
+          </button>
+          <button
+            class="btn-ordered-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ul></ul>')"
+          >
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+        </div>
+        <textarea
+          #coursesArea
+          id="courses"
+          name="courses"
+          placeholder="Kursy i certyfikaty..."
+          (focus)="setActiveTextarea(coursesArea)"
+          (input)="updatePreview($event)"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-title">
+        <label for="languages">
+          <h3 class="section-title">Języki</h3>
+        </label>
+        <div
+          class="form-group-info-box"
+          data-content="Wpisz języki, którymi się posługujesz, oraz ich poziom biegłości, zgodnie z międzynarodowymi standardami, np. 'Angielski - C1, Hiszpański - B2'."
+        >
+          <img src="img/info.svg" alt="" class="form-group-info" />
+        </div>
+      </div>
+      <div class="text-area-box">
+        <div class="btn-box">
+          <button
+            class="btn-bold tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<b></b>')"
+          >
+            <mat-icon>format_bold</mat-icon>
+          </button>
+          <button
+            class="btn-strike-through tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<s></s>')"
+          >
+            <mat-icon>strikethrough_s</mat-icon>
+          </button>
+          <button
+            class="btn-underline tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<u></u>')"
+          >
+            <mat-icon>format_underlined</mat-icon>
+          </button>
+          <button
+            class="btn-italic tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<i></i>')"
+          >
+            <mat-icon>format_italic</mat-icon>
+          </button>
+          <button
+            class="btn-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ol></ol>')"
+          >
+            <mat-icon>format_list_numbered</mat-icon>
+          </button>
+          <button
+            class="btn-ordered-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ul></ul>')"
+          >
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+        </div>
+        <textarea
+          #languagesArea
+          id="languages"
+          name="languages"
+          placeholder="Języki..."
+          (focus)="setActiveTextarea(languagesArea)"
+          (input)="updatePreview($event)"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-title">
+        <label for="hobbies">
+          <h3 class="section-title">Hobby</h3>
+        </label>
+        <div
+          class="form-group-info-box"
+          data-content="Opisz swoje zainteresowania i pasje. Skup się na hobby, które mogą pokazać Twoje dodatkowe umiejętności lub cechy, które mogą być przydatne w pracy, np. 'Gra na gitarze, Fotografia, Bieganie'."
+        >
+          <img src="img/info.svg" alt="" class="form-group-info" />
+        </div>
+      </div>
+      <div class="text-area-box">
+        <div class="btn-box">
+          <button
+            class="btn-bold tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<b></b>')"
+          >
+            <mat-icon>format_bold</mat-icon>
+          </button>
+          <button
+            class="btn-strike-through tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<s></s>')"
+          >
+            <mat-icon>strikethrough_s</mat-icon>
+          </button>
+          <button
+            class="btn-underline tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<u></u>')"
+          >
+            <mat-icon>format_underlined</mat-icon>
+          </button>
+          <button
+            class="btn-italic tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<i></i>')"
+          >
+            <mat-icon>format_italic</mat-icon>
+          </button>
+          <button
+            class="btn-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ol></ol>')"
+          >
+            <mat-icon>format_list_numbered</mat-icon>
+          </button>
+          <button
+            class="btn-ordered-list tool"
+            (mousedown)="$event.preventDefault()"
+            (click)="insertTag('<ul></ul>')"
+          >
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+        </div>
+        <textarea
+          #hobbiesArea
+          id="hobbies"
+          name="hobbies"
+          placeholder="Hobby..."
+          (focus)="setActiveTextarea(hobbiesArea)"
+          (input)="updatePreview($event)"
+        ></textarea>
+      </div>
+    </div>
+    <div class="primary-btn-box">
+      <a routerLink="/creator" class="btn-back">
+        <mat-icon class="fa-solid fa-arrow-left">arrow_back</mat-icon> Wróć
+      </a>
+      <button
+        id="save-cv"
+        class="btn-primary"
+        (click)="generateAndUploadCv()"
+        routerLink="/final-step"
+      >
+        Stwórz CV
+      </button>
+    </div>
+  </div>
+  <div class="overlay" [ngClass]="{ 'overlay-active': isOverlayActive }">
+    <div class="close-overlay">
+      <button class="close-btn" (click)="toggleOverlay()">
+        <img src="img/x-overlay.png" alt="zamknij podgląd CV" />
+      </button>
+    </div>
+    <div class="rectangle">
+      <div class="cv-preview" id="cv-preview" #cvPreview>
+        <div class="cv-photo" #previewPhoto id="preview-photo"></div>
+        @for ( section of previewSections; track $index) {
+        <div
+          id="{{ section.id }}"
+          class="cv-section"
+          [style.display]="section.display"
+        >
+          @if(section.heading) {
+          <h3>{{ section.heading }}</h3>
+          }
+          <p id="{{ section.id }}-preview"></p>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</main>

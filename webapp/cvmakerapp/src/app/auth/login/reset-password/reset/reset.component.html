@@ -1,0 +1,43 @@
+<main class="reset">
+    <div class="wrapper">
+        <div class="form-box" id="new-password-form">
+            <h2 class="form-heading">WPROWADŹ NOWE HASŁO</h2>
+            <p class="form-info">Zresetuj swoje hasło w minutę!</p>
+            <form [formGroup]="newPasswordForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="new-password" class="form-group-label">Hasło</label>
+                    <input
+                        type="password"
+                        id="new-password"
+                        formControlName="newPassword"
+                        placeholder="Nowe hasło"
+                        class="form-group-input"
+                    />
+                    <i class="fa fa-lock"></i>
+                    <mat-icon class="fa fa-lock">lock</mat-icon>
+                    @if(newPasswordForm.get("newPassword")?.invalid && newPasswordForm.get("newPassword")?.touched)
+                    {
+                        <p class="error">
+                            @if(newPasswordForm.get("newPassword")?.errors && newPasswordForm.get("newPassword")?.errors?.["required"])
+                            {
+                                <span>Hasło jest wymagane.</span>
+                            }
+                            @if(newPasswordForm.get("newPassword")?.errors?.["minlength"])
+                            {
+                                <span>Hasło musi mieć co najmniej 6 znaków.</span>
+                            }
+                        </p>
+                    }
+                </div>
+
+                <button type="submit" class="btn-primary reset-btn" [disabled]="newPasswordForm.invalid">
+                    Zmień hasło
+                </button>
+            </form>
+            <div class="message">
+                <p class="success">{{successMessage}}</p>
+                <p class="error">{{errorMessage}}</p>
+            </div>
+        </div>
+    </div>
+</main>

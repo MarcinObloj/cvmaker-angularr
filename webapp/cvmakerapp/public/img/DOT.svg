@@ -1,0 +1,38 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="DOT">
+<g id="Ellipse 4">
+<circle cx="20" cy="20" r="20" fill="url(#paint0_linear_2_5969)" fill-opacity="0.6"/>
+<circle cx="20" cy="20" r="19.5" stroke="url(#paint1_linear_2_5969)" stroke-opacity="0.6"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2_5969" x1="40" y1="40" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00ADB5"/>
+<stop offset="0.0909091" stop-color="#00A2AA"/>
+<stop offset="0.181818" stop-color="#00989F"/>
+<stop offset="0.272727" stop-color="#008D94"/>
+<stop offset="0.363636" stop-color="#008389"/>
+<stop offset="0.454545" stop-color="#15868C"/>
+<stop offset="0.545455" stop-color="#228A8F"/>
+<stop offset="0.636364" stop-color="#2C8D92"/>
+<stop offset="0.727273" stop-color="#419EA3"/>
+<stop offset="0.818182" stop-color="#55B0B5"/>
+<stop offset="0.909091" stop-color="#67C2C7"/>
+<stop offset="1" stop-color="#7AD4D9"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2_5969" x1="40" y1="40" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00ADB5"/>
+<stop offset="0.0909091" stop-color="#00A2AA"/>
+<stop offset="0.181818" stop-color="#00989F"/>
+<stop offset="0.272727" stop-color="#008D94"/>
+<stop offset="0.363636" stop-color="#008389"/>
+<stop offset="0.454545" stop-color="#15868C"/>
+<stop offset="0.545455" stop-color="#228A8F"/>
+<stop offset="0.636364" stop-color="#2C8D92"/>
+<stop offset="0.727273" stop-color="#419EA3"/>
+<stop offset="0.818182" stop-color="#55B0B5"/>
+<stop offset="0.909091" stop-color="#67C2C7"/>
+<stop offset="1" stop-color="#7AD4D9"/>
+</linearGradient>
+</defs>
+</svg>

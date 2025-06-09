@@ -1,0 +1,64 @@
+<nav class="nav">
+  <div class="nav__logo">
+    <a routerLink="/" class="nav__logo-text">
+      <img
+        src="img/logo.svg"
+        alt="Logo"
+        class="nav__logo-img" />Creator<span>CV</span>
+    </a>
+  </div>
+  <div class="open-overlay">
+    <button class="open-btn">
+      <img src="img/overla.png" alt="otworz podgląd CV" />
+    </button>
+  </div>
+</nav>
+<main class="main">
+  <div class="wrapper">
+    <div class="third__step-boxes">
+      <div class="third__step-box third__step-box-active">
+        <div class="third__step-box-number">
+          <i class="fa-solid fa-1"></i>
+        </div>
+        <p class="third__step-box-info">Wybierz szablon</p>
+      </div>
+      <div class="third__step-box">
+        <div class="third__step-box-number">
+          <i class="fa-solid fa-2"></i>
+        </div>
+        <p class="third__step-box-info">Uzupełnij dane</p>
+      </div>
+      <div class="third__step-box">
+        <div class="third__step-box-number">
+          <i class="fa-solid fa-3"></i>
+        </div>
+        <p class="third__step-box-info">Ściągnij CV</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="container">
+      <swiper-container
+        loop="true"
+        navigation="true"
+        pagination="true"
+        mousewheel-force-to-axis="true"
+        space-between="10"
+        slides-pre-view="3"
+        #swiperContainer
+      >
+        <swiper-slide *ngFor="let template of templates">
+          <div class="card-item">
+            <img [src]="template.img" alt="User Image" class="user-image" />
+            <h2 class="user-name">{{ template.name }}</h2>
+            <p class="user-profession">{{ template.description }}</p>
+            <a class="message-button" (click)="selectTemplate(template.id)">
+              Wybierz ten wzór
+            </a>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</main>

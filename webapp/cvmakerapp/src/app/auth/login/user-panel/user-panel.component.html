@@ -1,0 +1,81 @@
+<div class="dashboard-box">
+  <aside class="dashboard">
+    <div class="nav__logo">
+      <a routerLink="/" class="nav__logo-text">
+        <img src="img/logo.svg" alt="Logo" class="nav__logo-img" />Creator<span
+          >CV</span
+        >
+      </a>
+    </div>
+
+    <div class="account-box">
+      <img
+        src="img/account-photo.png"
+        alt="zdjecie swojego profilu"
+        class="account-img"
+      />
+      <p class="account-name" id="userName">
+        <strong id="userStrong"></strong>
+      </p>
+    </div>
+    <div class="account-buttons">
+      <button class="account-button active">
+        <mat-icon class="fa-solid fa-table-columns">dashboard</mat-icon
+        ><span class="siemanko"> Panel</span>
+      </button>
+      <button class="account-button">
+        <mat-icon class="fa-solid fa-gear">settings</mat-icon
+        ><span> Ustawienia</span>
+      </button>
+      <button class="account-button">
+        <mat-icon class="fa-solid fa-server">storage</mat-icon
+        ><span> Dane </span>
+      </button>
+    </div>
+  </aside>
+  <main class="main">
+    <h2 class="main-heading">
+      Witaj, {{ username }}<span id="userGreeting"></span>
+    </h2>
+    <p class="main-info">
+      Poniżej znajdziesz wszystkie dotychczas stworzone CV przez ciebie
+    </p>
+    <div class="cv__boxes">
+      <div class="upload-cv">
+        <input type="file" accept=".pdf" (change)="onFileSelected($event)" id="cvUploadInput" hidden />
+        <button class="upload-btn" (click)="triggerFileInput()">Dodaj zewnętrzne CV (PDF)</button>
+      </div>
+
+      @if(cvFiles.length >0){
+        <div class="cv__boxes" [ngClass]="{'few-cv': cvFiles.length <= 2}">
+          <div *ngFor="let cv of cvFiles" class="cv__box">
+            <img
+              [src]="cv.thumbnailUrl || 'img/cv-box.png'"
+              alt="Podgląd CV"
+              class="cv__box-photo"
+            />
+            <button class="delete-btn" (click)="deleteCv(cv.id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button class="download-btn" (click)="downloadCv(cv.id)">
+              Download | <i class="fa-solid fa-file-pdf"></i>
+            </button>
+          </div>
+
+        </div>
+      }@else{
+        <p>Brak stworzonych cv</p>
+      }
+    </div>
+  </main>
+</div>
+<app-modal
+  *ngIf="isModalVisible"
+  [title]="modalTitle"
+  [message]="modalMessage"
+  [showCancel]="showCancel"
+  [confirmText]="modalConfirmText"
+  [cancelText]="modalCancelText"
+  (confirm)="onModalConfirm()"
+  (cancel)="onModalCancel()">
+</app-modal>

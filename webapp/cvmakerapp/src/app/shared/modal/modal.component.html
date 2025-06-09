@@ -1,0 +1,11 @@
+<p>modal works!</p>
+<div class="modal-overlay">
+    <div class="modal-container">
+        <h2 class="modal-title">{{ title }}</h2>
+        <div class="modal-message">{{ message }}</div>
+        <div class="modal-actions">
+            <button class="btn-confirm" (click)="onConfirm()">{{ confirmText }}</button>
+            <button *ngIf="showCancel" class="btn-cancel" (click)="onCancel()">{{ cancelText }}</button>
+        </div>
+    </div>
+</div>

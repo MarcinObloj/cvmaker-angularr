@@ -1,0 +1,77 @@
+<main>
+  <div class="wrapper">
+    <div class="form-box">
+      <h2 class="form-heading">ZAREJESTRUJ SIĘ</h2>
+      <p class="form-info">Zacznij tworzyć CV za darmo!</p>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username" class="form-group-label"
+            >Nazwa użytkownika</label
+          >
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            placeholder="Username123"
+            class="form-group-input"
+          />
+          <mat-icon class="fa fa-user icon">person</mat-icon>
+
+          @if (registerForm.get('username')?.invalid &&
+          registerForm.get('username')?.touched) {
+          <p class="error">
+            Nazwa użytkownika jest wymagana i musi mieć co najmniej 3 znaki.
+          </p>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-group-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="mail@mail.com"
+            class="form-group-input"
+          />
+          <mat-icon class="fa fa-envelope">email</mat-icon>
+
+          @if (registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched) {
+          <p class="error">Proszę podać poprawny adres email.</p>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-group-label">Hasło</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="Hasło#123"
+            class="form-group-input"
+          />
+          <mat-icon class="fa fa-lock">lock</mat-icon>
+
+          @if (registerForm.get('password')?.invalid &&
+          registerForm.get('password')?.touched) {
+          <p class="error">
+            Hasło jest wymagane i musi mieć co najmniej 6 znaków.
+          </p>
+          }
+        </div>
+
+        <button class="btn-primary" [disabled]="registerForm.invalid">
+          Zarejestruj się
+        </button>
+      </form>
+      <p class="form-info">
+        Masz już konto? <a routerLink="/login">Zaloguj się</a>
+      </p>
+      <div class="message">
+        <p class="success">{{ successText }}</p>
+        <p class="error-register">{{ errorText }}</p>
+      </div>
+    </div>
+  </div>
+</main>

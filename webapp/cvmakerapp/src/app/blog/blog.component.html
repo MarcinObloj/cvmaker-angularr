@@ -1,0 +1,41 @@
+<header class="header__blog ">
+  <div class="wrapper">
+    <h1 class="blog-title">Jak napisać poprawne CV: Kompletny przewodnik</h1>
+    <div class="header__blog-author">
+      <img src="img/author.png" alt="Zdjęcie autora blogu">
+      <p class="header__blog-info"><strong>Marcin Obłój</strong> - Zaktualizowano 26/07/2024</p>
+    </div>
+  </div>
+</header>
+<main class="section-padding">
+  <div class="wrapper">
+    <p class="heading-description">
+      Pisanie CV może być wyzwaniem, ale dobrze przygotowane CV otworzy drzwi do wymarzonej pracy. W tym artykule przedstawiamy krok po kroku, jak napisać skuteczne CV, które przyciągnie uwagę pracodawców.
+    </p>
+    
+    
+    @for ( section of blogSections; track $index) {
+      <h2 class="blog-heading">{{ section.heading }}</h2>
+      <p class="heading-description">{{ section.description }}</p>
+    }
+    
+    <h2 class="blog-heading">Przykład poprawnego CV</h2>
+    <p class="heading-description">
+      Oto przykład dwóch podobnych CV, jednak jeden z nich nie przyciąga uwagi rekrutera.
+    </p>
+    <div class="blog__img-boxes">
+      <div class="blog__img-box">
+        <img src="img/example.png" alt="Przykład CV" class="blog__img" />
+        <a routerLink="firststep.html" class="btn-primary">Przejdź do kreatora</a>
+      </div>
+      <a href="https://zety.com/" target="_blank">
+        <p class="blog__source">Źródło</p>
+      </a>
+    </div>
+    <h2 class="blog-heading">Podsumowanie</h2>
+    <p class="heading-description">
+      Pisanie CV może wydawać się trudne, ale pamiętaj, że jest to Twoja wizytówka i pierwszy krok do zdobycia pracy. Aktualizuj swoje CV regularnie, aby zawsze było gotowe do wysłania.
+      Powodzenia!
+    </p>
+  </div>
+</main>

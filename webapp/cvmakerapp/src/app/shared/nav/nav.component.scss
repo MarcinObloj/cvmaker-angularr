@@ -1,0 +1,326 @@
+@use "./colors" as *;
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  z-index: 100000;
+}
+.hamburger:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #000;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+.hamburger-inner::before {
+  top: -10px;
+}
+.hamburger-inner::after {
+  bottom: -10px;
+}
+.hamburger--spin .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger--spin .hamburger-inner::before {
+  transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+.hamburger--spin .hamburger-inner::after {
+  transition: bottom 0.1s 0.25s ease-in,
+    transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+  transform: rotate(225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.hamburger--spin.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+.hamburger--spin.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.1s ease-out,
+    transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.nav__logo{
+  &-mobile{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.nav__logo,
+.footer__logo {
+  padding: 2em;
+
+  &-text {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-500, #222831);
+  }
+  &-img {
+    margin-right: 0.3em;
+  }
+  a {
+    span {
+      background: $colorLinear;
+      background-clip: text;
+      color: transparent;
+      font-weight: bold;
+    }
+  }
+}
+.nav__blog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav,
+.footer {
+  background: rgba(246, 246, 246, 0.6);
+  // padding: 2em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  a {
+    color: $colorPrimary500;
+
+    span {
+      background: $colorLinear;
+      background-clip: text;
+      color: transparent;
+    }
+    a:visited,
+    a:active,
+    a:hover {
+      color: #00767b;
+      font-weight: bold;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    text-align: center;
+  }
+  &__mobile {
+    position: absolute;
+    //
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: hidden;
+
+    transform: translateX(-102%);
+    transition: transform 0.3s;
+    &--active {
+      transform: translateX(0);
+      z-index: 10000;
+    }
+
+    &-list {
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        gap: 3em;
+        z-index: 100;
+        background-color: #fff;
+      }
+    }
+  }
+  &-item {
+    a {
+      // margin: 2em 1em;
+      padding: 1em 0.5em;
+      position: relative;
+    }
+    a::after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+      width: 0%;
+      background-color: $colorPrimary500;
+      height: 0px;
+      content: "";
+      transition: 0.3s;
+    }
+    a:hover::after {
+      height: 2px;
+      width: 100%;
+    }
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  &__desktop {
+    display: none;
+  }
+}
+.nav {
+  &__mobile {
+    z-index: 101;
+  }
+}
+.footer {
+  z-index: 1;
+  &--mobile-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &--mobile-social-media-box {
+    padding: 2em;
+    a {
+      margin-right: 0.5em;
+    }
+  }
+  &--mobile-copyright {
+    text-align: center;
+    padding-bottom: 2em;
+  }
+}
+
+// @media (width >= 768px) {
+// 	.btn-primary {
+// 		padding: 1.5rem 3rem;
+// 	}
+// }
+@media (width >= 992px) {
+  // .btn-primary,.btn-back{
+  // 	font-size: 2rem;
+  // 	padding: 1.6rem 3.2rem;
+  // }
+  .nav__blog,
+  .nav__logo-text {
+    font-size: 2rem;
+  }
+  .hamburger-box  {
+    display: none;
+  }
+  .nav,
+  .footer {
+    font-size: 2rem;
+
+    &__desktop {
+      display: block;
+      &-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &-list {
+        display: flex;
+        a {
+          margin-right: 1.87em;
+          padding: 0.5em;
+        }
+      }
+    }
+    .faq-item {
+      padding-right: 2em;
+
+      border-right: 1px solid $colorPrimary500;
+    }
+  }
+  .nav__logo-mobile {
+    display: none;
+  }
+  .footer {
+    &__desktop__bottom-box {
+      padding: 0 2em 1em 2em;
+      display: flex;
+      width: 80%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__desktop-social-media-box {
+      a {
+        margin-right: 1em;
+      }
+    }
+    &--mobile {
+      display: none;
+    }
+  }
+}
+@media (width >= 1200px) {
+  .nav,
+  .footer,
+  .nav__blog {
+    font-size: 2.4rem;
+  }
+  .footer {
+    &__desktop__bottom-box {
+      padding: 0 2em 1em 2em;
+      display: flex;
+      width: 65%;
+    }
+  }
+  .nav__logo-text,
+  .footer__logo-text,
+  .footer-links a {
+    font-size: 2.4rem;
+  }
+}

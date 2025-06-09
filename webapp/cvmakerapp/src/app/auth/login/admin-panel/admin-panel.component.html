@@ -1,0 +1,135 @@
+<div class="dashboard-box">
+  <aside class="dashboard">
+    <div class="nav__logo">
+      <a href="index.html" class="nav__logo-text">
+        <img src="img/logo.svg" alt="Logo" class="nav__logo-img" />Creator<span
+          >CV</span
+        >
+      </a>
+    </div>
+
+    <div class="account-box">
+      <img
+        src="img/author.png"
+        alt="zdjecie swojego profilu"
+        class="account-img"
+      />
+      <p class="account-name"><strong>Admin</strong></p>
+    </div>
+    <div class="account-buttons">
+      <button class="account-button">
+        <mat-icon class="fa-solid fa-chart-simple">bar_chart</mat-icon
+        ><span class="siemanko"> Zarządzaj</span>
+      </button>
+      <button class="account-button active">
+        <mat-icon class="fa-solid fa-table-columns">dashboard</mat-icon
+        ><span class="siemanko"> Panel</span>
+      </button>
+      <button class="account-button">
+        <mat-icon class="fa-solid fa-gear">settings</mat-icon
+        ><span> Ustawienia</span>
+      </button>
+      <button class="account-button">
+        <mat-icon class="fa-solid fa-server">storage</mat-icon
+        ><span> Dane </span>
+      </button>
+    </div>
+  </aside>
+  <main class="main">
+    <h2 class="main-heading">Witaj,<span>Admin</span></h2>
+    <p class="main-info">
+      Poniżej znajdziesz wszystkich użytkowników zarejestrowanych na naszej
+      stronie
+    </p>
+    <table id="usersTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nazwa Użytkownika</th>
+          <th>Email</th>
+          <th>Data Rejestracji</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track $index) {
+        <tr>
+          <td>{{ user.userId }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.createdAt | date }}</td>
+          <td>
+            <div class="action-buttons">
+              <button
+                class="btn btn-primary"
+                (click)="viewUserCvs(user.userId)"
+              >
+                Zobacz CV
+              </button>
+              <button class="btn btn-danger" (click)="deleteUser(user.userId)">
+                Usuń
+              </button>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+
+    @if(isCvListVisible) {
+    <div class="cv-list-container">
+      <div class="cv-list">
+        <h2>Lista CV użytkownika {{ selectedUserId }}</h2>
+
+        <table class="cv-table">
+          <thead>
+            <tr>
+              <th>Nazwa pliku</th>
+              <th>Data dodania</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (cv of cvFiles; track $index) {
+            <tr>
+              <td>{{ cv.fileName }}</td>
+              <td>{{ cv.createdAt | date }}</td>
+              <td>
+                <a
+                  [href]="cv.downloadUrl"
+                  target="_blank"
+                  class="btn btn-success"
+                  >Pobierz</a
+                >
+                <button
+                  class="btn btn-danger"
+                  (click)="deleteCv(cv.id, selectedUserId!)"
+                >
+                  Usuń
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+
+        <button class="btn btn-secondary close-btn" (click)="closeCvList()">
+          Zamknij
+        </button>
+      </div>
+    </div>
+    }
+  </main>
+</div>
+@if (isModalVisible) {
+<app-modal
+  [title]="modalTitle"
+  [message]="modalMessage"
+  [showCancel]="showCancel"
+  [confirmText]="modalConfirmText"
+  [cancelText]="modalCancelText"
+  (confirm)="onModalConfirm()"
+  (cancel)="onModalCancel()"
+>
+</app-modal>
+}

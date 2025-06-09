@@ -1,0 +1,91 @@
+<nav class="nav">
+  <div class="nav__desktop" #navDesktop>
+    <div class="nav__desktop-box">
+      <div class="nav__logo">
+        <a routerLink="/" class="nav__logo-text">
+          <img
+            src="img/logo.svg"
+            alt="Logo"
+            class="nav__logo-img"
+          />Creator<span>CV</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <ul class="nav__desktop-list nav-list">
+          <li class="nav__desktop-item nav-item">
+            <a routerLink="creator">Kreator</a>
+          </li>
+          <li class="nav__desktop-item nav-item">
+            <a routerLink="blog">Blog</a>
+          </li>
+          <li class="nav__desktop-item nav-item">
+            <a routerLink="faq" class="faq-item">FAQ</a>
+          </li>
+          <li *ngIf="!isLoggedIn" class="nav__desktop-item nav-item login">
+            <a routerLink="login">Logowanie</a>
+          </li>
+          <li *ngIf="!isLoggedIn" class="nav__desktop-item nav-item register">
+            <a routerLink="register">Rejestracja</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav__desktop-item nav-item user-panel">
+            @if(role == 'ROLE_ADMIN'){
+            <a routerLink="admin-panel">Panel administratora</a>
+            }@else {
+              <a routerLink="user-panel">Panel użytkownika</a>
+            }
+          </li>
+          <li *ngIf="isLoggedIn" class="nav__desktop-item nav-item user-panel">
+            <a (click)="logout()">Wyloguj</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="nav__logo nav__logo-mobile">
+    <a routerLink="/" class="nav__logo-text">
+      <img src="img/logo.svg" alt="Logo" class="nav__logo-img" />Creator<span
+        >CV</span
+      >
+    </a>
+    <button
+      class="hamburger hamburger--spin"
+      type="button"
+      (click)="toggleNav()"
+      #hamburgerButton
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+  <div class="nav__mobile" #navMobile>
+    <div class="nav-links-mobile">
+      <ul class="nav__mobile-list nav-list">
+        <div class="">
+          <li class="nav__mobile-item nav-item">
+            <a routerLink="creator">Kreator</a>
+          </li>
+          <li class="nav__mobile-item nav-item">
+            <a routerLink="blog">Blog</a>
+          </li>
+          <li class="nav__mobile-item nav-item">
+            <a routerLink="faq">FAQ</a>
+          </li>
+          <li class="nav__mobile-item nav-item login">
+            <a routerLink="login">Logowanie</a>
+          </li>
+          <li class="nav__mobile-item nav-item register">
+            <a routerLink="register">Rejestracja</a>
+          </li>
+          <li
+            class="nav__mobile-item nav-item user-panel"
+            style="display: none"
+          >
+            <a routerLink="userpanel">Panel użytkownika</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <hr />
+</nav>

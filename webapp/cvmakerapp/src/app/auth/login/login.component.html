@@ -1,0 +1,53 @@
+<main class="login">
+  <div class="wrapper">
+    <div class="form-box">
+      <h2 class="form-heading">ZALOGUJ SIĘ</h2>
+      <p class="form-info">Zacznij tworzyć CV za darmo!</p>
+      <form id="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username" class="form-group-label"
+            >Nazwa użytkownika lub email</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username123"
+            class="form-group-input"
+            [(ngModel)]="loginRequest.emailOrUsername"
+            required
+          />
+          <i class=""></i>
+          <mat-icon class="fa fa-user">person</mat-icon>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-group-label">Hasło</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Hasło#123"
+            class="form-group-input"
+            [(ngModel)]="loginRequest.password"
+            required
+          />
+          <i class="fa fa-lock"></i>
+          <mat-icon class="fa fa-lock">lock</mat-icon>
+        </div>
+        <a routerLink="/reset-password" class="form-reset"
+          >Zapomniałeś hasła?</a
+        >
+        <button class="btn-primary">Zaloguj się</button>
+      </form>
+
+      <p class="form-info">
+        Nie masz jeszcze konta? <a routerLink="/register">Zarejestruj się</a>
+      </p>
+      <div class="message">
+        <p class="success">{{ successText }}</p>
+        <p class="error">{{ errorText }}</p>
+      </div>
+    </div>
+  </div>
+</main>
